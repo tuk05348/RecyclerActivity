@@ -28,6 +28,6 @@ class NumberDisplayAdapter : RecyclerView.Adapter<NumberDisplayAdapter.NumberVie
     }
 
     override fun onBindViewHolder(holder: NumberViewHolder, position: Int) {
-        holder.textView.setText(numbers[position])
+        holder.textView.text = numbers[position].toString()
     }
 }
