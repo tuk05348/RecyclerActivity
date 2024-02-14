@@ -8,17 +8,26 @@ import androidx.recyclerview.widget.RecyclerView
 
 class NumberDisplayAdapter : RecyclerView.Adapter<NumberDisplayAdapter.NumberViewHolder>() {
 
-    class NumberViewHolder (val textView: TextView) : RecyclerView.ViewHolder (textView) {}
+    private val numbers = Array(100) {i -> i+1}
+    class NumberViewHolder (val _textView: TextView) : RecyclerView.ViewHolder (_textView) {
+        val textView = _textView
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NumberViewHolder {
-        TODO("Not yet implemented")
+        return NumberViewHolder(
+            TextView(
+                parent.context
+            ).apply {
+                layoutParams = ViewGroup.LayoutParams(300, 300)
+            }
+        )
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return numbers.size
     }
 
     override fun onBindViewHolder(holder: NumberViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.textView.setText(numbers[position])
     }
 }
